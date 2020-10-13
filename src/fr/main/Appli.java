@@ -11,6 +11,7 @@ public class Appli {
     public static Double POIDS_MAX;
     public static String CHEMIN;
     public static String METHODE;
+    public static final int PRECISION = 0;
 
     public static final String DATA_PATH = "data/";
     public static final String ANSI_RESET = "\u001B[0m";
@@ -57,7 +58,7 @@ public class Appli {
                         break;
                     case 2:
                         //A IMPLEMENTER : CHECK DANS ENUM METHODES
-                        if (args[i].equalsIgnoreCase("glouton") ||
+                        if (args[i].equalsIgnoreCase("gloutonne") ||
                                 args[i].equalsIgnoreCase("dynamique") ||
                                 args[i].equalsIgnoreCase("pse")) {
                             METHODE = args[i];
@@ -98,14 +99,14 @@ public class Appli {
         //Création de la méthode de résolution
         Resolution methodeRes = null;
         switch(METHODE) {
-            case "glouton":
+            case "gloutonne":
                 methodeRes = new ResolutionGloutonne(objetsPossibles);
                 break;
             case "dynamique":
                 methodeRes = new ResolutionDynamique(objetsPossibles);
                 break;
             case "pse":
-                methodeRes = new ResolutionPse();
+                methodeRes = new ResolutionPse(objetsPossibles);
                 break;
             default:
                 //ERREUR
@@ -116,6 +117,6 @@ public class Appli {
         methodeRes.résoudre(sac);
 
         //Résultat
-        System.out.println(ANSI_GREEN + "SUCCES: " + sac + ANSI_RESET);
+        System.out.println("\n" + ANSI_GREEN + "SUCCES: " + sac + ANSI_RESET);
     }
 }

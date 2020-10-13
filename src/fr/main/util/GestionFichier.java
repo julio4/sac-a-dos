@@ -1,5 +1,6 @@
 package fr.main.util;
 
+import fr.main.Appli;
 import fr.main.sacADos.Objet;
 
 import java.io.BufferedReader;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class GestionFichier {
+
     public static ArrayList<Objet> lireListeObj(String chemin) throws SaisieErroneeException, FileNotFoundException {
         try {
             BufferedReader bf = new BufferedReader(new FileReader(chemin));
@@ -25,8 +27,9 @@ public class GestionFichier {
                 for(int i = 0 ; i < 3; ++i)
                     objProp[i] = objProp[i].trim().replaceAll("\n ", "");
                 objetsPossibles.add(new Objet(objProp[0],
-                        Double.valueOf(objProp[1]),
-                        Double.valueOf(objProp[2])));
+                        (Double.valueOf(objProp[1]) * Math.pow(10.0, Appli.PRECISION) / Math.pow(10.0, Appli.PRECISION)),
+                        (Double.valueOf(objProp[2]) * Math.pow(10.0, Appli.PRECISION) / Math.pow(10.0, Appli.PRECISION))
+                ));
             }
             bf.close();
             return objetsPossibles;

@@ -37,10 +37,9 @@ public class Objet {
 
     @Override
     public String toString() {
-        return libellé + '[' +
-                "poids=" + poids +
-                ", prix=" + prix +
-                ", rapport=" + rapport +
+        return libellé + " [" +
+                "poids= " + poids +
+                ", prix= " + prix +
                 ']';
     }
 

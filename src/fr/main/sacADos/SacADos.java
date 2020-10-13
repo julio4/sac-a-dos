@@ -19,12 +19,12 @@ public class SacADos implements Iterable<Objet> {
     }
 
     public boolean ajouter(Objet objet) {
-        if(objet.getPoids() + this.poids < this.poidsMax) {
+        if(objet.getPoids() + this.poids <= this.poidsMax) {
             this.objDansLeSac.add(objet);
             this.poids += objet.getPoids();
             return true;
         }
-        return false; // L'objet est trop lourd pour le sac
+        return false;
     }
 
     public double getPoidsMax() {
@@ -50,8 +50,15 @@ public class SacADos implements Iterable<Objet> {
 
     @Override
     public String toString(){
-        return "Le contenu du sac à dos a une valeur de " + getValeur() + " pour un poids total de " + this.poids + ". \n" +
-                "Sa capacité maximale est de " + this.poidsMax + " (rempli à " +
-                String.format("%,.2f", 100*this.poids/this.poidsMax) + "%)!";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Sac à dos\n");
+        sb.append("-Valeur totale: " + getValeur() + "\n");
+        sb.append("-Poids total: " + this.poids + " (" + String.format("%,.2f", 100*this.poids/this.poidsMax) + "%)\n");
+        sb.append("-Poids Max: " + this.poidsMax + "\n");
+        sb.append("-Objets:\n");
+        for(int i = 0; i < this.objDansLeSac.size(); ++i) {
+            sb.append("  >" + this.objDansLeSac.get(i) + "\n");
+        }
+        return sb.toString();
     }
 }
