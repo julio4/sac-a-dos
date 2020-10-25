@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class SacADos implements Iterable<Objet> {
-    private Double poidsMax;
-    private Double poids;
+    private double poidsMax;
+    private double poids;
     private ArrayList<Objet> objDansLeSac = new ArrayList<>();
 
     //SacADos vide
@@ -16,6 +16,11 @@ public class SacADos implements Iterable<Objet> {
     public SacADos(Double poidsMax){
         this.poids = 0.0;
         this.poidsMax = poidsMax;
+    }
+
+    public void vider() {
+        this.poids = 0.0;
+        this.objDansLeSac.clear();
     }
 
     public boolean ajouter(Objet objet) {
@@ -36,7 +41,7 @@ public class SacADos implements Iterable<Objet> {
     }
 
     public double getValeur() {
-        Double valeur = 0.0;
+        double valeur = 0;
         for(Objet o : this) {
             valeur += o.getPrix();
         }
