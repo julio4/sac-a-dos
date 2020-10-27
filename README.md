@@ -218,7 +218,7 @@ app.afficher(sac);
 #### Arborescence
 
 <p align="center">
-<img src="./images/classDiagram.png"/ style="width:100%;border-radius:2%;">
+<img src="./images/ClassDiagram.png"/ style="width:100%;border-radius:2%;">
 </a>
 
 
