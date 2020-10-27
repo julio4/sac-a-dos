@@ -15,6 +15,8 @@ public class ResolutionGloutonne extends Resolution {
 
     /**
      * Constructeur pour instancier la classe de résolution
+     *
+     * @param sac le sac à résoudre
      */
     public ResolutionGloutonne(SacADos sac) {
         super(sac);
@@ -31,7 +33,7 @@ public class ResolutionGloutonne extends Resolution {
         tri.sort(Objet.parRapport());
         //Ajout dans le sac
         Iterator<Objet> itTri = tri.iterator();
-        while(itTri.hasNext() && sac.getPoid() < sac.getPoidMax()) {
+        while(itTri.hasNext() && sac.getPoids() < sac.getPoidsMax()) {
             sac.ajouter(itTri.next());
         }
         //Sac trié!

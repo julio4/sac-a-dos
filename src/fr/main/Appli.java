@@ -16,11 +16,29 @@ import fr.main.util.*;
  * @see GestionAppli
  */
 public class Appli {
-    public static final int PRECISION = 2; //Utilisée par l'algo PSE
+    /**
+     * Précision des décimales, utilisé par l'algorithme PSE
+     */
+    public static final int PRECISION = 0;
+    /**
+     * Le Poids Maximal du sac
+     */
     public static Double POIDS_MAX;
+    /**
+     * Le chemin vers le fichier texte contenant la liste d'objet
+     */
     public static String CHEMIN;
+    /**
+     * La méthode de résolution
+     * @see Methodes
+     */
     public static Methodes METHODE;
 
+    /**
+     * Entrée du programme
+     *
+     * @param args arguments
+     */
     public static void main(String[] args) {
         GestionAppli app = new GestionAppli();
 

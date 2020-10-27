@@ -12,12 +12,30 @@ import fr.main.util.GestionAppli;
  * @see GestionAppli
  */
 public class ABR {
+    /**
+     * Le fils gauche
+     */
     private ABR filsGauche;
+    /**
+     * Le fils droit
+     */
     private ABR filsDroit;
+    /**
+     * Le parent
+     */
     private final ABR parent;
+    /**
+     * La profondeur
+     */
     private final int profondeur;
+    /**
+     * La valeur actuel
+     */
     private final double valeur;
-    private final double poid;
+    /**
+     * Le fils gauche
+     */
+    private final double poids;
     private int indexObjet;
 
     /**
@@ -26,7 +44,7 @@ public class ABR {
     public ABR(){
         this.parent = this; //le parent est lui même --> racine
         this.profondeur = 0;
-        this.poid = this.valeur = 0.0;
+        this.poids = this.valeur = 0.0;
     }
 
     /**
@@ -34,13 +52,13 @@ public class ABR {
      *
      * @param parent le noeud parent
      * @param valeur la valeur du noeud
-     * @param poid le poid du noeud
+     * @param poids le poid du noeud
      * @param index l'index de l'objet
      */
-    public ABR(ABR parent, double valeur, double poid, int index){
+    public ABR(ABR parent, double valeur, double poids, int index){
         this.parent = parent;
         this.profondeur = parent.profondeur + 1;
-        this.poid = poid;
+        this.poids = poids;
         this.valeur = valeur;
         this.indexObjet = index;
     }
@@ -52,7 +70,7 @@ public class ABR {
      * @param index l'index de l'objet
      */
     public void setFilsGauche(Objet o, int index) {
-        this.filsGauche = new ABR(this, this.valeur + o.getValeur(), this.poid + o.getPoid(), index);
+        this.filsGauche = new ABR(this, this.valeur + o.getValeur(), this.poids + o.getPoids(), index);
     }
 
     /**
@@ -60,7 +78,7 @@ public class ABR {
      * Celui-ci n'est qu'une copie de son père, mais il n'a pas d'objet (indiqué par l'index)
      */
     public void setFilsDroit() {
-        this.filsDroit = new ABR(this, this.valeur, this.poid, -1);
+        this.filsDroit = new ABR(this, this.valeur, this.poids, -1);
     }
 
     /**
@@ -95,8 +113,8 @@ public class ABR {
      *
      * @return double poid
      */
-    public double getPoid() {
-        return this.poid;
+    public double getPoids() {
+        return this.poids;
     }
 
     /**

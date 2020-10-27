@@ -8,7 +8,16 @@ package fr.main.sacADos.methode;
  * @since   2020-10
  */
 public enum Methodes {
+    /**
+     * Algorithme Glouton
+     */
     GLOUTONNE,
+    /**
+     * Algorithme par programmation dynamique
+     */
     DYNAMIQUE,
+    /**
+     * Algorithme PSE
+     */
     PSE
 }

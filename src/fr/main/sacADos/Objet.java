@@ -11,26 +11,35 @@ import java.util.Comparator;
  * @since   2020-10
  */
 public class Objet {
+    /**
+     * Taille maximal du libellé
+     */
     private static final int MAX_LIB_SIZE = 30;
+    /**
+     * Le libellé
+     */
     private final String libelle;
-    private final double poid, valeur, rapport;
+    /**
+     * Poids, valeur et rapport poids/valeur
+     */
+    private final double poids, valeur, rapport;
 
     /**
      * Constructeur pour instancier un Objet
      *
      * @param libelle le libellé
-     * @param poid le poid
+     * @param poids le poid
      * @param valeur le poid
      */
-    public Objet(String libelle, double poid, double valeur){
+    public Objet(String libelle, double poids, double valeur){
         //Si le libellé dépasse la taille maximum, on ne prend que les premiers caractères
         if (libelle.length() <= 30)
             this.libelle = libelle;
         else
             this.libelle = libelle.substring(0,MAX_LIB_SIZE);
         this.valeur = valeur;
-        this.poid = poid;
-        this.rapport = valeur/poid;
+        this.poids = poids;
+        this.rapport = valeur/ poids;
     }
 
     /**
@@ -47,8 +56,8 @@ public class Objet {
      *
      * @return double poid
      */
-    public double getPoid(){
-        return this.poid;
+    public double getPoids(){
+        return this.poids;
     }
 
     /**
@@ -78,7 +87,7 @@ public class Objet {
     @Override
     public String toString() {
         return libelle + " [" +
-                "poids= " + poid +
+                "poids= " + poids +
                 ", prix= " + valeur +
                 ']';
     }
@@ -86,13 +95,9 @@ public class Objet {
     /**
      * Permet d'obtenir le comparator d'objet qui permet de trier par ordre décroissant du rapport d'une liste d'objets
      *
-     * @return Comparator<Objet> comparator
+     * @return Comparator comparator
      */
     public static Comparator<Objet> parRapport() {
-        return new Comparator<Objet>() {
-            public int compare(Objet o1, Objet o2) {
-                return Double.compare(o2.getRapport(), o1.getRapport());
-            }
-        };
+        return (o1, o2) -> Double.compare(o2.getRapport(), o1.getRapport());
     }
 }

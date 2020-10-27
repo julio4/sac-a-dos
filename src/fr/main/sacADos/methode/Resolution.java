@@ -13,7 +13,13 @@ import java.util.ArrayList;
  * @since   2020-10
  */
 public abstract class Resolution {
+    /**
+     * Le sac à résoudre
+     */
     protected SacADos sac;
+    /**
+     * L'ensemble d'objets
+     */
     ArrayList<Objet> objets;
 
     /**

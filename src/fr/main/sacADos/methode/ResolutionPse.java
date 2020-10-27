@@ -13,9 +13,18 @@ import fr.main.sacADos.methode.util.ABR;
  */
 public class ResolutionPse extends ResolutionGloutonne {
 
+    /**
+     * Solution possible, borne minimal
+     */
     private double minVal;
+    /**
+     * Noeud menant à la meilleure solution trouvé
+     */
     private ABR meilleurRes;
-    private double poidMax;
+    /**
+     * le poids maximal du sac
+     */
+    private double poidsMax;
 
     /**
      * Constructeur pour instancier la classe de résolution
@@ -31,7 +40,7 @@ public class ResolutionPse extends ResolutionGloutonne {
     public void resoudre() {
 
         //On initialise certaines données
-        this.poidMax = sac.getPoidMax();
+        this.poidsMax = sac.getPoidsMax();
         double maxVal = this.minVal = 0;
 
         //La valeur max si l'on met tout les objets dans le sac sans prendre en compte le poids max
@@ -79,13 +88,13 @@ public class ResolutionPse extends ResolutionGloutonne {
 
         //On test si une nouvelle meilleure solution possible est trouvée à gauche
         if(noeudActuel.getFilsGauche().getValeur() >= this.minVal
-                && noeudActuel.getFilsGauche().getPoid() <= this.poidMax) {
+                && noeudActuel.getFilsGauche().getPoids() <= this.poidsMax) {
             this.meilleurRes = noeudActuel.getFilsGauche();
             this.minVal = this.meilleurRes.getValeur();
         }
 
         //Si il il reste encore des objets à mettre dans le sac et que le poid maximal n'est pas atteint
-        if(index < super.objets.size() - 1 && noeudActuel.getPoid() < this.poidMax) {
+        if(index < super.objets.size() - 1 && noeudActuel.getPoids() < this.poidsMax) {
             //Le noeud gauche n'est pas concerné par le potentielMax,
             //Car s'il ne pouvait pas atteindre la borne minimal, il aurait été supprimé au noeud inférieur
             creeArbreRec(index + 1, noeudActuel.getFilsGauche(), maxPossible);
@@ -109,7 +118,7 @@ public class ResolutionPse extends ResolutionGloutonne {
      * @param noeudGagnant noeud correspondant au meilleur résultat trouvé
      */
     private void ajouterSolutionRec(ABR noeudGagnant) {
-        int i = -1;
+        int i;
 
         //Si l'index est -1, il n'y a aucun objet à ajouter
         if((i = noeudGagnant.getIndexObjet()) != -1) {

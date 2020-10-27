@@ -2,9 +2,7 @@ package fr.main.sacADos;
 
 import fr.main.sacADos.methode.*;
 import fr.main.util.GestionFichier;
-import org.jetbrains.annotations.NotNull;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,30 +17,49 @@ import java.util.Iterator;
  * @since   2020-10
  */
 public class SacADos implements Iterable<Objet> {
-    private final double poidMax;
-    private double poid;
+    /**
+     * Poids maximal que peux supporte le sac
+     */
+    private final double poidsMax;
+    /**
+     * Poids actuel du sac
+     */
+    private double poids;
+    /**
+     * Liste des objets à mettre dans le sac
+     */
     private ArrayList<Objet> objetsPossibles = new ArrayList<>();
+    /**
+     * Permet de résoudre le sac avec l'algorithme glouton
+     */
     private ArrayList<Objet> objDansLeSac = new ArrayList<>();
 
     /**
      * Constructeur pour instancier un sac vide
      */
     public SacADos() {
-        this.poidMax = this.poid = 0.0;
+        this.poidsMax = this.poids = 0.0;
     }
 
     /**
      * Constructeur pour instancier un sac à dos avec une liste d'objets
      *
      * @param chemin chemin vers le fichier texte contenant la liste d'objets
-     * @param poidMax le poid maximal du sac
+     * @param poidsMax le poid maximal du sac
+     * @throws IOException Le fichier des objets est invalide
      */
-    public SacADos(String chemin, Double poidMax) throws IOException {
-        this.poid = 0.0;
-        this.poidMax = poidMax;
+    public SacADos(String chemin, Double poidsMax) throws IOException {
+        this.poids = 0.0;
+        this.poidsMax = poidsMax;
         this.objetsPossibles = GestionFichier.lireListeObj(chemin);
     }
 
+    /**
+     * Résoud le sac avec la méthode indiqué
+     *
+     * @param METHODE la méthode à utiliser
+     * @see Methodes
+     */
     public void resoudre(Methodes METHODE) {
         Resolution methodeRes = null;
         switch(METHODE) {
@@ -66,7 +83,7 @@ public class SacADos implements Iterable<Objet> {
      * Utile pour tester plusieurs algorithmes de résolution sur un seul et unique sac
      */
     public void vider() {
-        this.poid = 0.0;
+        this.poids = 0.0;
         this.objDansLeSac.clear();
     }
 
@@ -76,9 +93,9 @@ public class SacADos implements Iterable<Objet> {
      * @param objet l'objet à ajouter dans le sac
      */
     public void ajouter(Objet objet) {
-        if(objet.getPoid() + this.poid <= this.poidMax) {
+        if(objet.getPoids() + this.poids <= this.poidsMax) {
             this.objDansLeSac.add(objet);
-            this.poid += objet.getPoid();
+            this.poids += objet.getPoids();
         }
     }
 
@@ -87,8 +104,8 @@ public class SacADos implements Iterable<Objet> {
      *
      * @return double poidMax
      */
-    public double getPoidMax() {
-        return this.poidMax;
+    public double getPoidsMax() {
+        return this.poidsMax;
     }
 
     /**
@@ -97,8 +114,8 @@ public class SacADos implements Iterable<Objet> {
      *
      * @return double poid
      */
-    public double getPoid() {
-        return this.poid;
+    public double getPoids() {
+        return this.poids;
     }
 
     /**
@@ -126,10 +143,10 @@ public class SacADos implements Iterable<Objet> {
     /**
      * Renvoie l'iterator du sac, qui correspond à celui de sa liste d'objet dans le sac
      *
-     * @return Iterator<Objet> iterator
+     * @return Iterator iterator
      */
     @Override
-    public @NotNull Iterator<Objet> iterator() {
+    public Iterator<Objet> iterator() {
         return this.objDansLeSac.iterator();
     }
 
@@ -147,12 +164,12 @@ public class SacADos implements Iterable<Objet> {
                 .append(getValeur())
                 .append("\n");
         sb.append("-Poid total: ")
-                .append(this.poid)
+                .append(this.poids)
                 .append(" (")
-                .append(String.format("%,.2f", 100 * this.poid / this.poidMax))
+                .append(String.format("%,.2f", 100 * this.poids / this.poidsMax))
                 .append("%)\n");
         sb.append("-Poid Maximal: ")
-                .append(this.poidMax)
+                .append(this.poidsMax)
                 .append("\n");
         sb.append("-Objets:\n");
         for (Objet objet : this.objDansLeSac) {

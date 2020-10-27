@@ -83,10 +83,21 @@ public class GestionAppli extends Appli {
         System.out.println(ANSI_RED + "Erreur: " + msg + ANSI_RESET + "\n");
     }
 
+    /**
+     * Affiche un message de succès
+     *
+     * @param msg le message à afficher
+     */
     private void affSucces(String msg){
         System.out.println(ANSI_GREEN + msg + ANSI_RESET + "\n");
     }
 
+    /**
+     * Valide les arguments,
+     * Si aucun argument n'est fournis le menu est chargé
+     *
+     * @param args les arguments
+     */
     private static void validerArgs(String[] args) throws IllegalArgumentException {
         if (args.length < 3) {
             String msg = "Arguments Manquants : ";
@@ -140,6 +151,9 @@ public class GestionAppli extends Appli {
         }
     }
 
+    /**
+     * charge le menu d'initialisation
+     */
     private void chargerMenu() {
         affSucces("MENU PRINCIPAL");
         Scanner scanner = new Scanner(System.in);
@@ -149,9 +163,8 @@ public class GestionAppli extends Appli {
         System.out.println("Choisir la source des données:");
 
         File directory = new File(DATA_PATH);
-        if (! directory.exists()){
+        if (! directory.exists())
             directory.mkdir();
-        }
 
         List<String> sources = null;
         try (Stream<Path> walk = Files.walk(Paths.get(DATA_PATH))) {
@@ -198,6 +211,9 @@ public class GestionAppli extends Appli {
         METHODE = (algoId == 1 ? Methodes.GLOUTONNE : (algoId == 2 ? Methodes.DYNAMIQUE : Methodes.PSE));
     }
 
+    /**
+     * validation des entrées
+     */
     private boolean sourceValide(int sourceId, List<String> sources) {
         if(sourceId == 0) {
             System.exit(1);
@@ -207,12 +223,18 @@ public class GestionAppli extends Appli {
             return false;
         }  else return true;
     }
+    /**
+     * validation des entrées
+     */
     private boolean poidValide(double poidMax) {
         if(poidMax < 0 ){
             affErreur("Le poid maximal est forcément négatif");
             return false;
         }  else return true;
     }
+    /**
+     * validation des entrées
+     */
     private boolean algoValide(int algoId) {
         if(algoId < 1 | algoId > 3){
             affErreur("Vérifiez votre saisie");

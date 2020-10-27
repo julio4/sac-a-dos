@@ -9,8 +9,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * La classe GestionAppli permet de gérer les I/O de l'utilisateur, les paramètres et les arguments ainsi que le menu
+ *
+ * @author  Jules Doumèche, Gwénolé Martin
+ * @version 1.0
+ * @since   2020-10
+ */
 public class GestionFichier {
 
+    /**
+     * Permet de lire le fichier indiqué par le chemin, de lires les objets et de les instancier dans une liste
+     *
+     * @param chemin le sac à résoudre
+     * @return ArrayList<Objet> objets
+     */
     public static ArrayList<Objet> lireListeObj(String chemin) throws IOException {
         //try-with-resources pour s'assurer que le bf se ferme bien même en cas d'exceptions
         try (BufferedReader bf = new BufferedReader(new FileReader(chemin))) {
