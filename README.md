@@ -52,7 +52,7 @@
 # clone du repos
 $ git clone https://github.com/julio4/sac-a-dos.git
 
-# se mettre dans le répertoire sac-a-dos
+# se placer dans le répertoire sac-a-dos
 $ cd sac-a-dos
 
 # lancer le programme
@@ -67,7 +67,7 @@ $ java -jar sac-a-dos.jar [arguments]
 ```sh
 $ java -jar sac-a-dos.jar [chemin] [poidsMax] [Méthode]
 
-  chemin                le chemin du fichier absolue,
+  chemin                le chemin du fichier absolu,
                         ou relatif dans le répertoire courant ou dans 'data/'
 
   poidsMax              Le poids maximal du sac à dos
@@ -84,7 +84,7 @@ $ java -jar sac-a-dos.jar
 ```
 La liste des différentes listes d'objets se situe : ```data/*.txt```
 
-Dircetement avec des arguments, exemples:
+Directement avec des arguments, exemples:
 ```sh
 $ java -jar sac-a-dos.jar itemsEval.txt 20 glouton
 
@@ -100,38 +100,38 @@ $ java -jar sac-a-dos.jar items.txt 5 pse
 ### Le problèmes du sac à dos
 
 Le [problème du sac à dos](https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_sac_%C3%A0_dos), ou [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem) en anglais, est un problème d'algorithmique.
-Ce problème modèlise un sac à dos, qui peux contenir des objets jusqu'à un poid limite (le poids maximal du sac). 
+Ce problème modélise un sac à dos, qui peut contenir des objets jusqu'à un poids limite (le poids maximal du sac). 
 
-Avec un ensemble A d'objets ayant chacun un poid et une valeur quel est le sous ensemble de A dont tout ses objets peuvent être mis dans le sac sans dépasser son poids maximal, tout en maximisant la valeur totale du sac.
+Avec un ensemble A d'objets ayant chacun un poids et une valeur, quel est le sous ensemble de A dont tout ses objets peuvent être mis dans le sac sans dépasser son poids maximal, tout en maximisant la valeur totale du sac.
 C'est un problème d'optimisation combinatoire
 
 ### Les algorithmes implantés
 
-Il existe de nombreux algorithmes différents pour résoudres ce problème.
+Il existe de nombreux algorithmes différents pour résoudre ce problème.
 Cependant nous pouvons les classer dans deux catégories:
 
-- **Résolution approchée** : trouve une solution réalisable qui n'est pas loin de la solution optimale. Elle permet souvent d'obtenir une complexité plus intéressante que la solution exacte
+- **Résolution approchée** : trouve une solution réalisable qui est proche de la solution optimale. Elle permet souvent d'obtenir une complexité plus intéressante que la solution exacte
 
-- **Résolution exacte** : trouve une solution optimale. L'enjeux est alors de réduire au maximul la complexité d'un tel algorithme
+- **Résolution exacte** : trouve une solution optimale. L'enjeu est alors de réduire au maximum la complexité d'un tel algorithme
 
 #### - Algorithme Gloutons
 
 L’algorithme calcule pour chaque objet de l'ensemble A le rapport de sa valeur sur son poids.
 
-Puis les objets sont trié dans une liste par ordre décroissant de la valeur du rapport du chaque objet.
+Puis les objets sont triés dans une liste par ordre décroissant de la valeur du rapport du chaque objet.
 
-Enfin, les objets sont ajoutés un à un dans le sac tant qu’il reste de la place et que le poid maximal n'est pas atteint. Il permet d'obtenir une solution approchée
+Enfin, les objets sont ajoutés un à un dans le sac tant qu’il reste de la place et que le poids maximal n'est pas atteint. Il permet d'obtenir une solution approchée
 
 #### - Algorithme par Programmation Dynamique
 
 Cet algorithme divise le problème en sous problèmes, pour ensuite déduire la solution 'générale'.
 
 L’algorithme crée une matrice de taille ```Poids Max * Nombre d’Objet```. 
-Les valeurs décimales sont multipliées pas 2 pour pouvoir les représenter comme des Integers (la précision peut être modifié dans ```Appli.PRECISION```).
+Les valeurs décimales sont multipliées par 2 pour pouvoir les représenter comme des Integers (la précision peut être modifiée dans ```Appli.PRECISION```).
 
-L’algorithme remplis en premier la première ligne, puis toute les lignes de la matrice qui représente le bénéfice possible associé aux i objets avec un poids j.
+L’algorithme rempli en premier la première ligne, puis toutes les lignes de la matrice qui représente le bénéfice possible associé aux i objets avec un poids j.
 
-Puis l’algorithme récupère chaque objets en remontant la matrice pour obtenir la solution optimale.
+Puis l’algorithme récupère chaque objet en remontant la matrice pour obtenir la solution optimale.
 
 Exemple:
 ``` 
@@ -173,9 +173,9 @@ Sac à dos
 
 L'algorithme crée un [Arbre Binaire de recherche](https://fr.wikipedia.org/wiki/Arbre_binaire_de_recherche) qui énumère toutes les solutions possibles.
 
-Afin de réduire au maximum l'arbre, l'algorithme calcule si une partie de l'arbre peux mener à une meilleure solution que celle(s) déjà trouvée(s) pour éviter d'explorer des branches inutilement.
+Afin de réduire au maximum l'arbre, l'algorithme calcule si une partie de l'arbre peut mener à une meilleure solution que celle(s) déjà trouvée(s) pour éviter d'explorer des branches inutilement.
 
-Avec le meilleur chemin de branches trouvé, l'algorithme retrouve tous les objets de la solutions optimale.
+Avec le meilleur chemin de branches trouvé, l'algorithme retrouve tous les objets de la solution optimale.
 
 
 ### Construire les sources

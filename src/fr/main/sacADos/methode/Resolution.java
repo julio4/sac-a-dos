@@ -33,7 +33,7 @@ public abstract class Resolution {
     }
 
     /**
-     * Permet de changer le sac si besoin de résoudre des sac différents
+     * Permet de changer le sac si il y a besoin de résoudre des sacs différents
      *
      * @param sac le sac à résoudre
      */

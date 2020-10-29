@@ -44,15 +44,15 @@ public class GestionAppli extends Appli {
     }
 
     /**
-     * Permet de lancer le programme et de gérer les erreurs potentiels
+     * Permet de lancer le programme et de gérer les erreurs potentielles
      *
-     * @param args les arguments fournis pas l'utilisateur
+     * @param args les arguments fournis par l'utilisateur
      */
     public void start(String[] args){
         try {
             validerArgs(args);
             affSucces("Arguments:" + "\nChemin: " + CHEMIN +
-                    "\nPoid max: " + POIDS_MAX + "\nMéthode: " + METHODE);
+                    "\nPoids max: " + POIDS_MAX + "\nMéthode: " + METHODE);
         }
         catch(IllegalArgumentException e) {
             affErreur(e);
@@ -94,7 +94,7 @@ public class GestionAppli extends Appli {
 
     /**
      * Valide les arguments,
-     * Si aucun argument n'est fournis le menu est chargé
+     * Si aucun argument n'est fourni le menu est chargé
      *
      * @param args les arguments
      */
@@ -133,7 +133,7 @@ public class GestionAppli extends Appli {
                         try {
                             POIDS_MAX = Double.parseDouble(args[i]);
                         } catch (NumberFormatException PoidsNonNumerique) {
-                            throw new IllegalArgumentException("Valeur du paramètre du poid maximal invalide: " + args[i]);
+                            throw new IllegalArgumentException("Valeur du paramètre du poids maximal invalide: " + args[i]);
                         }
                         break;
                     case 2:
@@ -228,7 +228,7 @@ public class GestionAppli extends Appli {
      */
     private boolean poidValide(double poidMax) {
         if(poidMax < 0 ){
-            affErreur("Le poid maximal est forcément négatif");
+            affErreur("Le poids maximal est forcément négatif");
             return false;
         }  else return true;
     }
