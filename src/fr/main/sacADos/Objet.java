@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 /**
  * La classe Objet représente un objet
- * Celui-ci est composé d'un libellé, d'un poid et d'une valeur
+ * Celui-ci est composé d'un libellé, d'un poids et d'une valeur
  *
  * @author  Jules Doumèche, Gwénolé Martin
  * @version 1.0
@@ -12,7 +12,7 @@ import java.util.Comparator;
  */
 public class Objet {
     /**
-     * Taille maximal du libellé
+     * Taille maximale du libellé
      */
     private static final int MAX_LIB_SIZE = 30;
     /**
@@ -28,8 +28,8 @@ public class Objet {
      * Constructeur pour instancier un Objet
      *
      * @param libelle le libellé
-     * @param poids le poid
-     * @param valeur le poid
+     * @param poids le poids
+     * @param valeur le poids
      */
     public Objet(String libelle, double poids, double valeur){
         //Si le libellé dépasse la taille maximum, on ne prend que les premiers caractères
@@ -52,9 +52,9 @@ public class Objet {
     }
 
     /**
-     * Renvoie le poid de l'objet
+     * Renvoie le poids de l'objet
      *
-     * @return double poid
+     * @return double poids
      */
     public double getPoids(){
         return this.poids;
@@ -70,7 +70,7 @@ public class Objet {
     }
 
     /**
-     * Renvoie le rapport valeur/poid de l'objet
+     * Renvoie le rapport valeur/poids de l'objet
      *
      * @return double rapport
      */
@@ -93,7 +93,7 @@ public class Objet {
     }
 
     /**
-     * Permet d'obtenir le comparator d'objet qui permet de trier par ordre décroissant du rapport d'une liste d'objets
+     * Permet d'obtenir le comparator d'objet qui permet de trier par ordre décroissant en fonction du rapport d'une liste d'objets
      *
      * @return Comparator comparator
      */

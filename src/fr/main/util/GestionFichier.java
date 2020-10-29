@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class GestionFichier {
 
     /**
-     * Permet de lire le fichier indiqué par le chemin, de lires les objets et de les instancier dans une liste
+     * Permet de lire le fichier indiqué par le chemin, de lire les objets et de les instancier dans une liste
      *
      * @param chemin le sac à résoudre
      * @return ArrayList<Objet> objets
@@ -35,7 +35,7 @@ public class GestionFichier {
                 String[] objProp = ligne.split(";");
                 if (objProp.length != 3) {
                     throw new IOException("Syntaxe invalide lors de la lecture du fichier ligne " + nbLignes
-                            + "\nSyntaxe: Nom Objet ; Poid ; Prix\nExemple: Lampe ; 2.0 ; 30.0");
+                            + "\nSyntaxe: Nom Objet ; Poids ; Prix\nExemple: Lampe ; 2.0 ; 30.0");
                 }
                 for (int i = 0; i < 3; ++i)
                     objProp[i] = objProp[i].trim().replaceAll("\n ", "");
@@ -49,7 +49,7 @@ public class GestionFichier {
             throw new IOException("Ouverture du fichier impossible");
         } catch (NumberFormatException PoidsNonNumerique) {
             throw new IOException("Erreur de lecture du nombre, les virgules se notent '.'.\n"
-                    + "Syntaxe: Nom Objet ; Poid ; Prix\nExemple: Lampe ; 2.0 ; 30.0\n"
+                    + "Syntaxe: Nom Objet ; Poids ; Prix\nExemple: Lampe ; 2.0 ; 30.0\n"
                     + PoidsNonNumerique.getMessage());
         }
     }

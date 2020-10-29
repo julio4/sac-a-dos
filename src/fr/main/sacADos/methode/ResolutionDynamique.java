@@ -5,7 +5,7 @@ import fr.main.sacADos.*;
 
 /**
  * La classe ResolutionDynamique permet de résoudre le problème du sac à dos grâce à
- * la programation dynamique
+ * la programmation dynamique
  *
  * @author  Jules Doumèche, Gwénolé Martin
  * @version 1.0
@@ -32,7 +32,7 @@ public class ResolutionDynamique extends Resolution {
         int PoidsMaxInt = (int)(sac.getPoidsMax() * Math.pow(10.0, Appli.PRECISION));
         double[][] table = new double[NB_OBJETS][PoidsMaxInt + 1];
 
-        //On rempli d'abord la première ligne
+        //On remplit d'abord la première ligne
         for (int j = 0; j <= PoidsMaxInt; j++) {
             if (objets.get(0).getPoids() * Math.pow(10.0, Appli.PRECISION) > j)
                 table[0][j] = 0;
@@ -40,7 +40,7 @@ public class ResolutionDynamique extends Resolution {
                 table[0][j] = objets.get(0).getValeur();
         }
 
-        //On rempli toutes les autres lignes
+        //On remplit toutes les autres lignes
         for(int i = 1; i < NB_OBJETS; ++i) {
             for (int j = 0; j <= PoidsMaxInt; ++j)
                 if(objets.get(i).getPoids() * Math.pow(10.0, Appli.PRECISION) > j)

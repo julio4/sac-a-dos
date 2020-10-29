@@ -1,7 +1,7 @@
 package fr.main.sacADos.methode;
 
 /**
- * La classe Méthodes énumères les différents algorithmes de résolution implémenté
+ * La classe Méthodes énumère les différents algorithmes de résolution implémentés
  *
  * @author  Jules Doumèche, Gwénolé Martin
  * @version 1.0

@@ -9,8 +9,8 @@ import java.util.Iterator;
 
 /**
  * La classe SacADos représente un sac à dos dans le contexte du problème du sac à dos
- * Ce dernier comprend un poid maximal, un poid actuel, une liste d'objet dans le sac
- * et une liste d'objet total
+ * Ce dernier comprend un poids maximal, un poids actuel, une liste d'objets dans le sac
+ * et une liste d'objets totaux
  *
  * @author  Jules Doumèche, Gwénolé Martin
  * @version 1.0
@@ -18,7 +18,7 @@ import java.util.Iterator;
  */
 public class SacADos implements Iterable<Objet> {
     /**
-     * Poids maximal que peux supporte le sac
+     * Poids maximal que peut supporter le sac
      */
     private final double poidsMax;
     /**
@@ -45,7 +45,7 @@ public class SacADos implements Iterable<Objet> {
      * Constructeur pour instancier un sac à dos avec une liste d'objets
      *
      * @param chemin chemin vers le fichier texte contenant la liste d'objets
-     * @param poidsMax le poid maximal du sac
+     * @param poidsMax le poids maximal du sac
      * @throws IOException Le fichier des objets est invalide
      */
     public SacADos(String chemin, Double poidsMax) throws IOException {
@@ -55,7 +55,7 @@ public class SacADos implements Iterable<Objet> {
     }
 
     /**
-     * Résoud le sac avec la méthode indiqué
+     * Résous le sac avec la méthode indiquée
      *
      * @param METHODE la méthode à utiliser
      * @see Methodes
@@ -100,7 +100,7 @@ public class SacADos implements Iterable<Objet> {
     }
 
     /**
-     * Renvoie le poid maximal autorisé
+     * Renvoie le poids maximal autorisé
      *
      * @return double poidMax
      */
@@ -109,17 +109,17 @@ public class SacADos implements Iterable<Objet> {
     }
 
     /**
-     * Renvoie le poid actuel du sac
-     * Celui-ci correspond à la somme du poid de tout les objets contenu dans le sac
+     * Renvoie le poids actuel du sac
+     * Celui-ci correspond à la somme du poids de tous les objets contenus dans le sac
      *
-     * @return double poid
+     * @return double poids
      */
     public double getPoids() {
         return this.poids;
     }
 
     /**
-     * Renvoie la valeur actuel du sac
+     * Renvoie la valeur actuelle du sac
      *
      * @return double valeur
      */
@@ -132,7 +132,7 @@ public class SacADos implements Iterable<Objet> {
     }
 
     /**
-     * Renvoie la valeur actuel du sac
+     * Renvoie la valeur actuelle du sac
      *
      * @return double valeur
      */
@@ -141,7 +141,7 @@ public class SacADos implements Iterable<Objet> {
     }
 
     /**
-     * Renvoie l'iterator du sac, qui correspond à celui de sa liste d'objet dans le sac
+     * Renvoie l'iterator du sac, qui correspond à celui de sa liste d'objets dans le sac
      *
      * @return Iterator iterator
      */
@@ -152,7 +152,7 @@ public class SacADos implements Iterable<Objet> {
 
     /**
      * Représentation en chaîne de caractères du sac
-     * Contien la valeur totale, le poid, et les objets
+     * Contient la valeur totale, le poids, et les objets
      *
      * @return String sac
      */
@@ -163,12 +163,12 @@ public class SacADos implements Iterable<Objet> {
         sb.append("-Valeur totale: ")
                 .append(getValeur())
                 .append("\n");
-        sb.append("-Poid total: ")
+        sb.append("-Poids total: ")
                 .append(this.poids)
                 .append(" (")
                 .append(String.format("%,.2f", 100 * this.poids / this.poidsMax))
                 .append("%)\n");
-        sb.append("-Poid Maximal: ")
+        sb.append("-Poids Maximal: ")
                 .append(this.poidsMax)
                 .append("\n");
         sb.append("-Objets:\n");

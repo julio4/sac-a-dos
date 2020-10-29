@@ -8,7 +8,7 @@ import fr.main.util.*;
 
 /**
  * La classe Appli gère le bon fonctionnement du programme
- * Des utilitaires sont implémenté dans GestionAppli
+ * Des utilitaires sont implémentés dans GestionAppli
  *
  * @author  Jules Doumèche, Gwénolé Martin
  * @version 1.0
@@ -17,7 +17,7 @@ import fr.main.util.*;
  */
 public class Appli {
     /**
-     * Précision des décimales, utilisé par l'algorithme PSE
+     * Précision des décimales, utilisée par l'algorithme PSE
      */
     public static final int PRECISION = 0;
     /**
@@ -25,7 +25,7 @@ public class Appli {
      */
     public static Double POIDS_MAX;
     /**
-     * Le chemin vers le fichier texte contenant la liste d'objet
+     * Le chemin vers le fichier texte contenant la liste d'objets
      */
     public static String CHEMIN;
     /**
