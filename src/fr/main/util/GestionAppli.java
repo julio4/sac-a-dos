@@ -197,10 +197,10 @@ public class GestionAppli extends Appli {
         } while( !sourceValide(sourceId, Objects.requireNonNull(sources)) );
         CHEMIN = sources.get(sourceId - 1);
 
-        //POID MAX
+        //POIDS MAX
         double poidMax;
         do {
-            System.out.println("Poid maximal du sac:");
+            System.out.println("Poids maximal du sac:");
             System.out.println(ANSI_BLUE);
             poidMax = scanner.nextInt();
             System.out.println(ANSI_RESET);
