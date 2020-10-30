@@ -44,6 +44,16 @@ public class GestionAppli extends Appli {
     }
 
     /**
+     * Permet d'afficher l'état du sac
+     *
+     * @param sac le sac à résoudre
+     * @param temps durée d'exécution
+     */
+    public void afficher(SacADos sac, long temps) {
+        affSucces(sac.toString() + "\n Durée d'exécution: " + String.valueOf(temps) + " ms");
+    }
+
+    /**
      * Permet de lancer le programme et de gérer les erreurs potentielles
      *
      * @param args les arguments fournis par l'utilisateur

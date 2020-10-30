@@ -55,9 +55,9 @@ public class Appli {
         }
 
         //Résolution
-        sac.resoudre(METHODE);
+        long temps = sac.resoudre(METHODE);
 
         //Résultat
-        app.afficher(sac);
+        app.afficher(sac, temps);
     }
 }

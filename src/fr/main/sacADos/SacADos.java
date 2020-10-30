@@ -58,9 +58,10 @@ public class SacADos implements Iterable<Objet> {
      * Résous le sac avec la méthode indiquée
      *
      * @param METHODE la méthode à utiliser
+     * @return temps le temps de résolution du sac
      * @see Methodes
      */
-    public void resoudre(Methodes METHODE) {
+    public long resoudre(Methodes METHODE) {
         Resolution methodeRes = null;
         switch(METHODE) {
             case GLOUTONNE:
@@ -75,7 +76,9 @@ public class SacADos implements Iterable<Objet> {
             default:
                 //gestion methode non implémentée
         }
+        long debut = System.currentTimeMillis();
         methodeRes.resoudre();
+        return System.currentTimeMillis() - debut;
     }
 
     /**
