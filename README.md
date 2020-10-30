@@ -126,7 +126,7 @@ Enfin, les objets sont ajoutés un à un dans le sac tant qu’il reste de la pl
 
 Cet algorithme divise le problème en sous problèmes, pour ensuite déduire la solution 'générale'.
 
-L’algorithme crée une matrice de taille ```Poids Max * Nombre d’Objet```. 
+L’algorithme crée une matrice de taille ```Poids Max * Nombre d’Objets```. 
 Les valeurs décimales sont multipliées par 2 pour pouvoir les représenter comme des Integers (la précision peut être modifiée dans ```Appli.PRECISION```).
 
 L’algorithme rempli en premier la première ligne, puis toutes les lignes de la matrice qui représente le bénéfice possible associé aux i objets avec un poids j.
@@ -138,7 +138,7 @@ Exemple:
 > fr.main.Appli itemsEval.txt 20 dyn
 Arguments:
 Chemin: data/itemsEval.txt
-Poid max: 20.0
+Poids max: 20.0
 Méthode: DYNAMIQUE
 
   i\j  0      1      2      3      4      5      6      7      8      9      10     11     12     13     14     15     16     17     18     19     20     
@@ -158,8 +158,8 @@ Méthode: DYNAMIQUE
 
 Sac à dos
 -Valeur totale: 1430.0
--Poid total: 20.0 (100.00%)
--Poid Maximal: 20.0
+-Poids total: 20.0 (100.00%)
+-Poids Maximal: 20.0
 -Objets:
   >Lingot d'or [poids= 10.0, prix= 1000.0]
   >iPhone [poids= 2.0, prix= 200.0]
