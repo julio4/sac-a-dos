@@ -220,10 +220,4 @@ app.afficher(sac);
 <img src="./images/ClassDiagram.png"/ style="width:100%;border-radius:2%;">
 </a>
 
-
-## Contact
-
-Jules Doumèche - [@julio4](https://github.com/julio4) - jules.doumeche@etu.u-paris.fr
-Gwénolé Martin - [@LightBowFire](https://github.com/LightBowFire/) - gwenole.martin@etu.u-paris.fr
-
 MIT ©<br/>
